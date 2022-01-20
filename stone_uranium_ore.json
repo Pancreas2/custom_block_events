@@ -1,0 +1,40 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "metals:stone_uranium_ore",
+			"is_experimental": false,
+			"register_to_creative_menu": true
+		},
+		"components": {
+			"minecraft:unit_cube": {},
+			"minecraft:iron_pick_diggable": {},
+			"minecraft:diamond_pick_diggable": {},
+			"minecraft:destroy_time": 4,
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "stone_uranium_ore",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:creative_category": {
+				"category": "nature",
+				"group": "itemGroup.name.ore"
+			},
+			"minecraft:on_player_destroyed": {
+				"event": "break",
+				"target": "self"
+			},
+			"minecraft:loot": "loot_tables/uranium_ore.json"
+		},
+		"events": {
+			"break": {
+				"add_mob_effect": {
+					"effect": "poison",
+					"duration": 10,
+					"target": "other"
+				}
+			}
+		}
+	}
+}
